@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Skladapp.Models.Product_on_warehouse>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Товары на складе</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Количество
+        </th>
+        <th>
+            Название ассортимента
+        </th>
+        <th>
+           Наименование склада
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ranges.Names_range)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Warehouse.Names)
+        </td>
+        <td>
+            @Html.ActionLink("Редактирование", "Edit", new { id=item.ID_Product_on_warehouse }) |
+            @Html.ActionLink("Информация", "Details", new { id=item.ID_Product_on_warehouse }) |
+            @Html.ActionLink("Удаление", "Delete", new { id=item.ID_Product_on_warehouse })
+        </td>
+    </tr>
+}
+
+</table>

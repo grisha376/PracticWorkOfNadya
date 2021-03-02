@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Skladapp.Models.Employees>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Работники</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Фамилия
+        </th>
+        <th>
+            Имя
+        </th>
+        <th>
+            Отчество
+        </th>
+        <th>
+            Дата рождения
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Номер телефона
+        </th>
+        <th>
+            Логин
+        </th>
+        <th>
+            Пароли
+        </th>
+        <th>
+            Должности
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Names)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patronymic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_of_birth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Logins)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passwords)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Posts.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Редактирование", "Edit", new { id=item.ID_Employee }) |
+            @Html.ActionLink("Информация", "Details", new { id=item.ID_Employee }) |
+            @Html.ActionLink("Удаление", "Delete", new { id=item.ID_Employee })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SKLADModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Accepted_product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_dispatch" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="ID_product" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Dispatch" Relationship="Self.FK__Accepted___ID_di__571DF1D5" FromRole="Accepted_product" ToRole="Dispatch" />
+    <NavigationProperty Name="Ranges" Relationship="Self.FK__Accepted___ID_pr__5812160E" FromRole="Accepted_product" ToRole="Ranges" />
+  </EntityType>
+  <EntityType Name="Dispatch">
+    <Key>
+      <PropertyRef Name="ID_dispatch" />
+    </Key>
+    <Property Name="ID_dispatch" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dates" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_employee" Type="Int32" Nullable="false" />
+    <Property Name="ID_klients" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Accepted_product" Relationship="Self.FK__Accepted___ID_di__571DF1D5" FromRole="Dispatch" ToRole="Accepted_product" />
+    <NavigationProperty Name="Dispatch_product" Relationship="Self.FK__Dispatch___ID_di__534D60F1" FromRole="Dispatch" ToRole="Dispatch_product" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Dispatch__ID_emp__4F7CD00D" FromRole="Dispatch" ToRole="Employees" />
+    <NavigationProperty Name="Klients" Relationship="Self.FK__Dispatch__ID_kli__5070F446" FromRole="Dispatch" ToRole="Klients" />
+  </EntityType>
+  <EntityType Name="Dispatch_product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_dispatch" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="ID_product" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Dispatch" Relationship="Self.FK__Dispatch___ID_di__534D60F1" FromRole="Dispatch_product" ToRole="Dispatch" />
+    <NavigationProperty Name="Ranges" Relationship="Self.FK__Dispatch___ID_pr__5441852A" FromRole="Dispatch_product" ToRole="Ranges" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="ID_Employee" />
+    </Key>
+    <Property Name="ID_Employee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Position" Type="Int32" Nullable="false" />
+    <Property Name="Sername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Names" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date_of_birth" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Logins" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Passwords" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Dispatch" Relationship="Self.FK__Dispatch__ID_emp__4F7CD00D" FromRole="Employees" ToRole="Dispatch" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK__Employees__ID_Po__403A8C7D" FromRole="Employees" ToRole="Posts" />
+    <NavigationProperty Name="Providers" Relationship="Self.FK__Providers__ID_Re__48CFD27E" FromRole="Employees" ToRole="Providers" />
+  </EntityType>
+  <EntityType Name="Klients">
+    <Key>
+      <PropertyRef Name="ID_Klients" />
+    </Key>
+    <Property Name="ID_Klients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Names" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Dispatch" Relationship="Self.FK__Dispatch__ID_kli__5070F446" FromRole="Klients" ToRole="Dispatch" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="ID_Post" />
+    </Key>
+    <Property Name="ID_Post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__ID_Po__403A8C7D" FromRole="Posts" ToRole="Employees" />
+    <NavigationProperty Name="Warehouse" Relationship="Self.FK__Warehouse__ID_Le__3D5E1FD2" FromRole="Posts" ToRole="Warehouse" />
+  </EntityType>
+  <EntityType Name="Product_on_warehouse">
+    <Key>
+      <PropertyRef Name="ID_Product_on_warehouse" />
+    </Key>
+    <Property Name="ID_Product_on_warehouse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Product" Type="Int32" Nullable="false" />
+    <Property Name="ID_Warehouse" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ranges" Relationship="Self.FK__Product_o__ID_Pr__4BAC3F29" FromRole="Product_on_warehouse" ToRole="Ranges" />
+    <NavigationProperty Name="Warehouse" Relationship="Self.FK__Product_o__ID_Wa__4CA06362" FromRole="Product_on_warehouse" ToRole="Warehouse" />
+  </EntityType>
+  <EntityType Name="Providers">
+    <Key>
+      <PropertyRef Name="ID_Provider" />
+    </Key>
+    <Property Name="ID_Provider" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dates" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_Receiving_employee" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Providers__ID_Re__48CFD27E" FromRole="Providers" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Ranges">
+    <Key>
+      <PropertyRef Name="ID_product" />
+    </Key>
+    <Property Name="ID_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Names_range" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Unit_of_measurement" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Accepted_product" Relationship="Self.FK__Accepted___ID_pr__5812160E" FromRole="Ranges" ToRole="Accepted_product" />
+    <NavigationProperty Name="Dispatch_product" Relationship="Self.FK__Dispatch___ID_pr__5441852A" FromRole="Ranges" ToRole="Dispatch_product" />
+    <NavigationProperty Name="Product_on_warehouse" Relationship="Self.FK__Product_o__ID_Pr__4BAC3F29" FromRole="Ranges" ToRole="Product_on_warehouse" />
+    <NavigationProperty Name="Unit_of_measurement1" Relationship="Self.FK__Ranges__Unit_of___45F365D3" FromRole="Ranges" ToRole="Unit_of_measurement" />
+  </EntityType>
+  <EntityType Name="Unit_of_measurement">
+    <Key>
+      <PropertyRef Name="ID_Unit_of_measurement" />
+    </Key>
+    <Property Name="ID_Unit_of_measurement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Short_title" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Full_title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ranges" Relationship="Self.FK__Ranges__Unit_of___45F365D3" FromRole="Unit_of_measurement" ToRole="Ranges" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="ID_Warehouse" />
+    </Key>
+    <Property Name="ID_Warehouse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Names" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Leader" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK__Warehouse__ID_Le__3D5E1FD2" FromRole="Warehouse" ToRole="Posts" />
+    <NavigationProperty Name="Product_on_warehouse" Relationship="Self.FK__Product_o__ID_Wa__4CA06362" FromRole="Warehouse" ToRole="Product_on_warehouse" />
+  </EntityType>
+  <Association Name="FK__Accepted___ID_di__571DF1D5">
+    <End Role="Dispatch" Type="Self.Dispatch" Multiplicity="1" />
+    <End Role="Accepted_product" Type="Self.Accepted_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dispatch">
+        <PropertyRef Name="ID_dispatch" />
+      </Principal>
+      <Dependent Role="Accepted_product">
+        <PropertyRef Name="ID_dispatch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Accepted___ID_pr__5812160E">
+    <End Role="Ranges" Type="Self.Ranges" Multiplicity="1" />
+    <End Role="Accepted_product" Type="Self.Accepted_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ranges">
+        <PropertyRef Name="ID_product" />
+      </Principal>
+      <Dependent Role="Accepted_product">
+        <PropertyRef Name="ID_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dispatch___ID_di__534D60F1">
+    <End Role="Dispatch" Type="Self.Dispatch" Multiplicity="1" />
+    <End Role="Dispatch_product" Type="Self.Dispatch_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dispatch">
+        <PropertyRef Name="ID_dispatch" />
+      </Principal>
+      <Dependent Role="Dispatch_product">
+        <PropertyRef Name="ID_dispatch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dispatch__ID_emp__4F7CD00D">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Dispatch" Type="Self.Dispatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="ID_Employee" />
+      </Principal>
+      <Dependent Role="Dispatch">
+        <PropertyRef Name="ID_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dispatch__ID_kli__5070F446">
+    <End Role="Klients" Type="Self.Klients" Multiplicity="1" />
+    <End Role="Dispatch" Type="Self.Dispatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klients">
+        <PropertyRef Name="ID_Klients" />
+      </Principal>
+      <Dependent Role="Dispatch">
+        <PropertyRef Name="ID_klients" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dispatch___ID_pr__5441852A">
+    <End Role="Ranges" Type="Self.Ranges" Multiplicity="1" />
+    <End Role="Dispatch_product" Type="Self.Dispatch_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ranges">
+        <PropertyRef Name="ID_product" />
+      </Principal>
+      <Dependent Role="Dispatch_product">
+        <PropertyRef Name="ID_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employees__ID_Po__403A8C7D">
+    <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="ID_Post" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="ID_Position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Providers__ID_Re__48CFD27E">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Providers" Type="Self.Providers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="ID_Employee" />
+      </Principal>
+      <Dependent Role="Providers">
+        <PropertyRef Name="ID_Receiving_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Warehouse__ID_Le__3D5E1FD2">
+    <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="ID_Post" />
+      </Principal>
+      <Dependent Role="Warehouse">
+        <PropertyRef Name="ID_Leader" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product_o__ID_Pr__4BAC3F29">
+    <End Role="Ranges" Type="Self.Ranges" Multiplicity="1" />
+    <End Role="Product_on_warehouse" Type="Self.Product_on_warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ranges">
+        <PropertyRef Name="ID_product" />
+      </Principal>
+      <Dependent Role="Product_on_warehouse">
+        <PropertyRef Name="ID_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product_o__ID_Wa__4CA06362">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+    <End Role="Product_on_warehouse" Type="Self.Product_on_warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="ID_Warehouse" />
+      </Principal>
+      <Dependent Role="Product_on_warehouse">
+        <PropertyRef Name="ID_Warehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ranges__Unit_of___45F365D3">
+    <End Role="Unit_of_measurement" Type="Self.Unit_of_measurement" Multiplicity="1" />
+    <End Role="Ranges" Type="Self.Ranges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit_of_measurement">
+        <PropertyRef Name="ID_Unit_of_measurement" />
+      </Principal>
+      <Dependent Role="Ranges">
+        <PropertyRef Name="Unit_of_measurement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SKLADEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accepted_product" EntityType="Self.Accepted_product" />
+    <EntitySet Name="Dispatch" EntityType="Self.Dispatch" />
+    <EntitySet Name="Dispatch_product" EntityType="Self.Dispatch_product" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" />
+    <EntitySet Name="Klients" EntityType="Self.Klients" />
+    <EntitySet Name="Posts" EntityType="Self.Posts" />
+    <EntitySet Name="Product_on_warehouse" EntityType="Self.Product_on_warehouse" />
+    <EntitySet Name="Providers" EntityType="Self.Providers" />
+    <EntitySet Name="Ranges" EntityType="Self.Ranges" />
+    <EntitySet Name="Unit_of_measurement" EntityType="Self.Unit_of_measurement" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" />
+    <AssociationSet Name="FK__Accepted___ID_di__571DF1D5" Association="Self.FK__Accepted___ID_di__571DF1D5">
+      <End Role="Dispatch" EntitySet="Dispatch" />
+      <End Role="Accepted_product" EntitySet="Accepted_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Accepted___ID_pr__5812160E" Association="Self.FK__Accepted___ID_pr__5812160E">
+      <End Role="Ranges" EntitySet="Ranges" />
+      <End Role="Accepted_product" EntitySet="Accepted_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dispatch___ID_di__534D60F1" Association="Self.FK__Dispatch___ID_di__534D60F1">
+      <End Role="Dispatch" EntitySet="Dispatch" />
+      <End Role="Dispatch_product" EntitySet="Dispatch_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dispatch__ID_emp__4F7CD00D" Association="Self.FK__Dispatch__ID_emp__4F7CD00D">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Dispatch" EntitySet="Dispatch" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dispatch__ID_kli__5070F446" Association="Self.FK__Dispatch__ID_kli__5070F446">
+      <End Role="Klients" EntitySet="Klients" />
+      <End Role="Dispatch" EntitySet="Dispatch" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dispatch___ID_pr__5441852A" Association="Self.FK__Dispatch___ID_pr__5441852A">
+      <End Role="Ranges" EntitySet="Ranges" />
+      <End Role="Dispatch_product" EntitySet="Dispatch_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employees__ID_Po__403A8C7D" Association="Self.FK__Employees__ID_Po__403A8C7D">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Providers__ID_Re__48CFD27E" Association="Self.FK__Providers__ID_Re__48CFD27E">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Providers" EntitySet="Providers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Warehouse__ID_Le__3D5E1FD2" Association="Self.FK__Warehouse__ID_Le__3D5E1FD2">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Warehouse" EntitySet="Warehouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product_o__ID_Pr__4BAC3F29" Association="Self.FK__Product_o__ID_Pr__4BAC3F29">
+      <End Role="Ranges" EntitySet="Ranges" />
+      <End Role="Product_on_warehouse" EntitySet="Product_on_warehouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product_o__ID_Wa__4CA06362" Association="Self.FK__Product_o__ID_Wa__4CA06362">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Product_on_warehouse" EntitySet="Product_on_warehouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ranges__Unit_of___45F365D3" Association="Self.FK__Ranges__Unit_of___45F365D3">
+      <End Role="Unit_of_measurement" EntitySet="Unit_of_measurement" />
+      <End Role="Ranges" EntitySet="Ranges" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

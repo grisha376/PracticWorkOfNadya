@@ -1,0 +1,96 @@
+﻿@model Skladapp.Models.Employees
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены что хотите удалить это?</h3>
+<div>
+    <h4>Работники</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Фамилия
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sername)
+        </dd>
+
+        <dt>
+            Имя
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Names)
+        </dd>
+
+        <dt>
+            Отчество
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+
+        <dt>
+            Дата рождения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_of_birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Номер телефона
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Логин
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logins)
+        </dd>
+
+        <dt>
+            Пароль
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passwords)
+        </dd>
+
+        <dt>
+            Должность
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posts.Title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удаление" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться обратно", "Index")
+        </div>
+    }
+</div>

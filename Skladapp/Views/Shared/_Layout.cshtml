@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - приложение SkladApp</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: "Lato";
+            font-weight: 300;
+            font-size: 16px;
+            color: #555;
+            margin-top: 50px;
+        }
+
+         h2 {
+            font-family: "Raleway";
+            font-weight: 300;
+            color: #333;
+         }
+
+
+        p {
+            line-height: 28px;
+            margin-bottom: 25px;
+        }
+
+        
+
+        a {
+            color: #de7557;
+            word-wrap: break-word;
+        }
+
+            a:hover, a:focus {
+                color: #7b7b7b;
+                text-decoration: none;
+                outline: 0;
+            }
+
+        .navbar {
+            font-weight: 800;
+            font-size: 14px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+            .navbar-inverse .navbar-brand {
+                color: #999999;
+                font-size: 22px;
+                letter-spacing: 2px;
+            }
+        
+    </style>
+   
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("SkladApp", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Клиенты", "Index", "Klients")</li>
+                    <li>@Html.ActionLink("Работники", "Index", "Employees")</li>
+                    <li>@Html.ActionLink("Ассортимент", "Index", "Ranges")</li>
+                    <li>@Html.ActionLink("Товары на складе", "Index", "Product_on_warehouse")</li>
+                    <li>@Html.ActionLink("Принятые товары", "Index", "Accepted_product")</li>
+                    <li>@Html.ActionLink("Отправленные товары", "Index", "Dispatch_product")</li>
+                    <li>@Html.ActionLink("Отправки", "Index", "Dispatches")</li>
+                    <li>@Html.ActionLink("Поставки", "Index", "Providers")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Date - мое приложение SkladApp</p>
+        </footer>
+    </div>
+
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

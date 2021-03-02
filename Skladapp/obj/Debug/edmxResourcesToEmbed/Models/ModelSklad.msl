@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище SKLADModelContainer" CdmEntityContainer="SKLADEntities">
+    <EntitySetMapping Name="Accepted_product">
+      <EntityTypeMapping TypeName="SKLADModel.Accepted_product">
+        <MappingFragment StoreEntitySet="Accepted_product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_dispatch" ColumnName="ID_dispatch" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="ID_product" ColumnName="ID_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dispatch">
+      <EntityTypeMapping TypeName="SKLADModel.Dispatch">
+        <MappingFragment StoreEntitySet="Dispatch">
+          <ScalarProperty Name="ID_dispatch" ColumnName="ID_dispatch" />
+          <ScalarProperty Name="Dates" ColumnName="Dates" />
+          <ScalarProperty Name="ID_employee" ColumnName="ID_employee" />
+          <ScalarProperty Name="ID_klients" ColumnName="ID_klients" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dispatch_product">
+      <EntityTypeMapping TypeName="SKLADModel.Dispatch_product">
+        <MappingFragment StoreEntitySet="Dispatch_product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_dispatch" ColumnName="ID_dispatch" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="ID_product" ColumnName="ID_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="SKLADModel.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+          <ScalarProperty Name="ID_Position" ColumnName="ID_Position" />
+          <ScalarProperty Name="Sername" ColumnName="Sername" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Logins" ColumnName="Logins" />
+          <ScalarProperty Name="Passwords" ColumnName="Passwords" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Klients">
+      <EntityTypeMapping TypeName="SKLADModel.Klients">
+        <MappingFragment StoreEntitySet="Klients">
+          <ScalarProperty Name="ID_Klients" ColumnName="ID_Klients" />
+          <ScalarProperty Name="Sername" ColumnName="Sername" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="SKLADModel.Posts">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="ID_Post" ColumnName="ID_Post" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_on_warehouse">
+      <EntityTypeMapping TypeName="SKLADModel.Product_on_warehouse">
+        <MappingFragment StoreEntitySet="Product_on_warehouse">
+          <ScalarProperty Name="ID_Product_on_warehouse" ColumnName="ID_Product_on_warehouse" />
+          <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
+          <ScalarProperty Name="ID_Warehouse" ColumnName="ID_Warehouse" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Providers">
+      <EntityTypeMapping TypeName="SKLADModel.Providers">
+        <MappingFragment StoreEntitySet="Providers">
+          <ScalarProperty Name="ID_Provider" ColumnName="ID_Provider" />
+          <ScalarProperty Name="Dates" ColumnName="Dates" />
+          <ScalarProperty Name="ID_Receiving_employee" ColumnName="ID_Receiving_employee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ranges">
+      <EntityTypeMapping TypeName="SKLADModel.Ranges">
+        <MappingFragment StoreEntitySet="Ranges">
+          <ScalarProperty Name="ID_product" ColumnName="ID_product" />
+          <ScalarProperty Name="Names_range" ColumnName="Names_range" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Unit_of_measurement" ColumnName="Unit_of_measurement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unit_of_measurement">
+      <EntityTypeMapping TypeName="SKLADModel.Unit_of_measurement">
+        <MappingFragment StoreEntitySet="Unit_of_measurement">
+          <ScalarProperty Name="ID_Unit_of_measurement" ColumnName="ID_Unit_of_measurement" />
+          <ScalarProperty Name="Short_title" ColumnName="Short_title" />
+          <ScalarProperty Name="Full_title" ColumnName="Full_title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouse">
+      <EntityTypeMapping TypeName="SKLADModel.Warehouse">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="ID_Warehouse" ColumnName="ID_Warehouse" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="ID_Leader" ColumnName="ID_Leader" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

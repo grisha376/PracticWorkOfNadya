@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Skladapp.Models.Providers>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Поставки</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Дата
+        </th>
+        <th>
+            Фамилия принявшего сотрудника
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employees.Sername)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_Provider }) |
+            @Html.ActionLink("Информация", "Details", new { id=item.ID_Provider }) |
+            @Html.ActionLink("Удаление", "Delete", new { id=item.ID_Provider })
+        </td>
+    </tr>
+}
+
+</table>

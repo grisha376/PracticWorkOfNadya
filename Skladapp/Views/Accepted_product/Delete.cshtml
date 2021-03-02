@@ -1,0 +1,48 @@
+﻿@model Skladapp.Models.Accepted_product
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены что хотите удалить это?</h3>
+<div>
+    <h4>Принятые товары</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Количество
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            ID_отправки
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dispatch.ID_dispatch)
+        </dd>
+
+        <dt>
+            Наименование ассортимента
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ranges.Names_range)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться обратно", "Index")
+        </div>
+    }
+</div>

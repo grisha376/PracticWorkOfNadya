@@ -1,0 +1,42 @@
+﻿@model Skladapp.Models.Ranges
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Информация</h2>
+
+<div>
+    <h4>Ассортимент</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Наименование ассортимента
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Names_range)
+        </dd>
+
+        <dt>
+            Цена
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Единица измерения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit_of_measurement1.Short_title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактирование", "Edit", new { id = Model.ID_product }) |
+    @Html.ActionLink("Вернуться обратно", "Index")
+</p>

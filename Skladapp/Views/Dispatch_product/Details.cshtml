@@ -1,0 +1,42 @@
+﻿@model Skladapp.Models.Dispatch_product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Информация</h2>
+
+<div>
+    <h4>Отправленные товары</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Количество
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            Отправленные товары
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dispatch.ID_dispatch)
+        </dd>
+
+        <dt>
+            Наименование ассортимента
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ranges.Names_range)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Вернуться обратно", "Index")
+</p>

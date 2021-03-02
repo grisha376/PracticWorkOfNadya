@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="82da4c7f02f74196ae1b7655a59ba60d" Name="Diagram1">
+        <EntityTypeShape EntityType="SKLADModel.Accepted_product" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SKLADModel.Dispatch" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SKLADModel.Dispatch_product" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SKLADModel.Employees" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="SKLADModel.Klients" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SKLADModel.Posts" Width="1.5" PointX="1.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SKLADModel.Product_on_warehouse" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SKLADModel.Providers" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SKLADModel.Ranges" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SKLADModel.Unit_of_measurement" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SKLADModel.Warehouse" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SKLADModel.FK__Accepted___ID_di__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Accepted___ID_pr__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Dispatch___ID_di__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Dispatch__ID_emp__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Dispatch__ID_kli__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Dispatch___ID_pr__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Employees__ID_Po__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Providers__ID_Re__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Warehouse__ID_Le__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Product_o__ID_Pr__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Product_o__ID_Wa__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="SKLADModel.FK__Ranges__Unit_of___45F365D3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

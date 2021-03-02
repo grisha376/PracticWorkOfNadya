@@ -1,0 +1,48 @@
+﻿@model Skladapp.Models.Ranges
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены что хотите удалить это?</h3>
+<div>
+    <h4>Ассортимент</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Наименование ассортимента
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Names_range)
+        </dd>
+
+        <dt>
+            Цена
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Единица измерения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit_of_measurement1.Short_title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удаление" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться обратно", "Index")
+        </div>
+    }
+</div>

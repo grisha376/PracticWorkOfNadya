@@ -1,0 +1,90 @@
+﻿@model Skladapp.Models.Employees
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Информация</h2>
+
+<div>
+    <h4>Работники</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Фамилия
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sername)
+        </dd>
+
+        <dt>
+            Имя
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Names)
+        </dd>
+
+        <dt>
+            Отчество
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+
+        <dt>
+            Дата рожджения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_of_birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Номер телефона
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Логин
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logins)
+        </dd>
+
+        <dt>
+            Пароль
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passwords)
+        </dd>
+
+        <dt>
+            Должность
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posts.Title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактирование", "Edit", new { id = Model.ID_Employee }) |
+    @Html.ActionLink("Вернуться обратно", "Index")
+</p>
